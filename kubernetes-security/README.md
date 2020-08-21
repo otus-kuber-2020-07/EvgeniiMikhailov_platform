@@ -20,3 +20,10 @@ kubectl get pods -n kube-system --as system:serviceaccount:prometheus:carol
 ```
 
 ## tas03
+Создал отдельный ns dev с двумя serviceaccounts (jane и ken). Jane назначил ClusterRole admin с помощью RoleBinding. Ken назначил ClusterRole view с помощью RoleBinding.
+
+Проверить можно с помощью команды
+```bash
+kubectl get pods -n dev --as system:serviceaccount:dev:jane
+kubectl get pods -n dev --as system:serviceaccount:dev:ken
+```
