@@ -15,3 +15,6 @@
 * Настроил DaemonSet для [Node Exporter](https://github.com/prometheus/node_exporter) который запускается на всех нодах кластера (⭐ и ⭐⭐)
 
 ## [ДЗ **#3** Безопасность и управление доступом (лекция #4)](kubernetes-security/README.md)
+* Создал 2 serviceaccount bob и dave. Bob назначил ClusterRole admin.
+* Создал ns prometheus, создал sa carol. Назначил права всем sa из prometheus ns возможность делать get,list,watch для pods во всем кластере.
+* Создал отдельный ns dev с двумя serviceaccounts (jane и ken). Jane назначил ClusterRole admin с помощью RoleBinding. Ken назначил ClusterRole view с помощью RoleBinding.
