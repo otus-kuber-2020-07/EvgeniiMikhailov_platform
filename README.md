@@ -18,3 +18,5 @@
 * Создал 2 serviceaccount bob и dave. Bob назначил ClusterRole admin.
 * Создал ns prometheus, создал sa carol. Назначил права всем sa из prometheus ns возможность делать get,list,watch для pods во всем кластере.
 * Создал отдельный ns dev с двумя serviceaccounts (jane и ken). Jane назначил ClusterRole admin с помощью RoleBinding. Ken назначил ClusterRole view с помощью RoleBinding.
+
+## [ДЗ **#4** Сетевое взаимодействие (Pod, сервисы) (лекция #5)](kubernetes-network/README.md)
