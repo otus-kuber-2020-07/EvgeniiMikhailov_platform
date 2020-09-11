@@ -29,3 +29,7 @@
 * Установил Ingress и опубликовал web deployment с помощью headless service.
 * Добавил доступк Kubernetes Dashboard через Ingress (⭐).
 * Реализовал канареечное развертывание с помощью Ingress (⭐).
+
+## [ДЗ **#5** Хранение данных в Kubernetes. Volumes, Storages, Statefull-приложения (лекция #6)](kubernetes-volumes/README.md)
+* Установил minio.
+* Перенес токены в secrets (⭐).
