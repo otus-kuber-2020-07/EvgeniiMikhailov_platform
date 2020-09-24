@@ -33,3 +33,5 @@
 ## [ДЗ **#5** Хранение данных в Kubernetes. Volumes, Storages, Statefull-приложения (лекция #6)](kubernetes-volumes/README.md)
 * Установил minio.
 * Перенес токены в secrets (⭐).
+
+## [ДЗ **#6** Шаблонизация манифестов. Helm и его аналоги (лекция #7)](kubernetes-templating/README.md)
