@@ -58,4 +58,62 @@ helm upgrade --install cert-manager jetstack/cert-manager --wait --namespace=cer
 TODO: вышла новая версия cert-manager >1.0 [документация по установке](https://cert-manager.io/docs/installation/kubernetes/)
 
 ### Завершение установки cert-manager
-https://cert-manager.io/docs/configuration/
+Согласно [документации](https://cert-manager.io/docs/configuration/0) создал 2 манифеста для ACME Issuers (production и staging).
+
+## chartmuseum
+### Установка
+```bash
+kubectl create ns chartmuseum
+helm upgrade --install chartmuseum stable/chartmuseum --wait --namespace=chartmuseum --version=2.13.2 -f kubernetes-templating/chartmuseum/values.yaml
+```
+Проверка установки
+```bash
+helm ls -n chartmuseum
+kubectl get secrets -n chartmuseum
+```
+
+## harbor
+### Установка
+```bash
+helm repo add harbor https://helm.goharbor.io
+kubectl create ns harbor
+helm upgrade --install harbor harbor/harbor --wait --namespace=harbor --version=1.1.2 -f kubernetes-templating/harbor/values.yaml
+```
+
+## Создаем свой helm chart
+```bash
+helm create kubernetes-templating/hipster-shop
+```
+
+```bash
+kubectl create ns hipster-shop
+helm upgrade --install hipster-shop kubernetes-templating/hipster-shop --namespace hipster-shop
+```
+
+```bash
+helm upgrade --install hipster-shop kubernetes-templating/hipster-shop --namespace hipster-shop
+helm upgrade --install frontend kubernetes-templating/frontend --namespace hipster-shop
+```
+
+Установка зависимостей
+```bash
+helm dep update kubernetes-templating/hipster-shop 
+```
+
+Переопределение переменных
+```bash
+helm upgrade --install hipster-shop kubernetes-templating/hipster-shop --namespace hipster-shop --set frontend.service.nodePort=31234
+```
+
+## kubecfg
+```bash
+kubecfg show kubernetes-templating/kubecfg/services.jsonnet
+kubecfg update kubernetes-templating/kubecfg/services.jsonnet --namespace hipster-shop
+```
+
+## kustomize
+```bash
+kubectl create ns hipster-shop-prod
+kubectl apply -k kubernetes-templating/kustomize/overrides/hipster-shop/
+kubectl apply -k kubernetes-templating/kustomize/overrides/hipster-shop-prod/
+```

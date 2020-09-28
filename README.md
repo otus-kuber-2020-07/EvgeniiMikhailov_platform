@@ -35,3 +35,8 @@
 * Перенес токены в secrets (⭐).
 
 ## [ДЗ **#6** Шаблонизация манифестов. Helm и его аналоги (лекция #7)](kubernetes-templating/README.md)
+* Подготовил кластер Kubernetes в GCP (GKE)
+* Установил и настроит nginx-ingress, cert-manager с помощью helm3
+* Установил chartmuseum и harbor
+* Создал helm chart с зависимостями и загрузил его в harbor
+* Поэксперементировал с kubecfg и kustomize
