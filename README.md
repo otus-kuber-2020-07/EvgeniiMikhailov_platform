@@ -40,3 +40,8 @@
 * Установил chartmuseum и harbor
 * Создал helm chart с зависимостями и загрузил его в harbor
 * Поэксперементировал с kubecfg и kustomize
+
+## [ДЗ **#7** Custom Resource Definitions. Operators (лекция #8)](kubernetes-operators/README.md)
+* Создал CRD и CR для MySQL
+* Написал controller для управления MySQL
+* Проверил работу оператора
